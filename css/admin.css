@@ -1,0 +1,24 @@
+html body {
+    background-color: black;
+    font-family:"Luckiest Guy", cursive;
+}
+.table {
+    border-radius: 10px; 
+    overflow: hidden;
+    background-color:#810404;
+}
+.table thead th {
+    background-color:#810404;
+    color: white; 
+}
+.table tbody th,
+.table tbody td {
+    border-top: none; 
+}
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 150px; 
+    z-index: 1;
+}

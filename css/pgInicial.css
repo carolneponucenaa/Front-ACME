@@ -1,7 +1,25 @@
-*
 html body {
-    background-color: red;
-  }
-  .login-form {
-    margin-top: 150px;
-  }
+  background-color: black;
+  color: white;
+  font-family:  "Luckiest Guy", cursive;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-form {
+  background-color: #810404;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px; 
+}
+.btn-block {
+  width: 100%;
+}
+.center-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; 
+}
