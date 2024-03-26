@@ -11,9 +11,10 @@ html body {
     background-color:#810404;
     color: white; 
 }
-.table tbody th,
-.table tbody td {
-    border-top: none; 
+.table th,
+.table td {
+    border-color: black; 
+    border-width: 40px;
 }
 .header-image {
     position: absolute;
