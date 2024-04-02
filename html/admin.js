@@ -1,4 +1,4 @@
-import {getFilmes,deleteFilme} from '../js/filmes.js'
+import {getFilmes,deleteFilme,postFilme} from '../js/filmes.js'
 const listaFilmes = await getFilmes()
 
 function criarCard(info){
@@ -45,3 +45,41 @@ function tratar(string){
 document.getElementById('logo').addEventListener('click',()=>{
     window.location.href='./landing.html'
 })
+
+document.getElementById('saveMovieButton').addEventListener('click', async () => {
+    const title = document.getElementById('movieTitle').value
+    const synopsis = document.getElementById('movieSynopsis').value
+    const releaseDate = document.getElementById('movieReleaseDate').value
+    const reReleaseDate = document.getElementById('movieReReleaseDate').value
+    const posterURL = document.getElementById('moviePosterURL').value
+    const duration = document.getElementById('movieDuration').value
+    const price = document.getElementById('moviePrice').value
+
+    const filme = {
+        nome: title,
+        sinopse: synopsis,
+        data_lancamento: releaseDate,
+        data_relancamento: reReleaseDate,
+        poster_url: posterURL,
+        duracao: duration,
+        valor: price
+    };
+
+    const sucesso = await postFilme(filme);
+    if (sucesso) {
+        document.getElementById('movieTitle').value = ''
+        document.getElementById('movieSynopsis').value = ''
+        document.getElementById('movieReleaseDate').value = ''
+        document.getElementById('movieReReleaseDate').value = ''
+        document.getElementById('moviePosterURL').value = ''
+        document.getElementById('movieDuration').value = ''
+        document.getElementById('moviePrice').value = ''
+
+        const modal = new bootstrap.Modal(document.getElementById('addMovieModal'));
+        modal.hide();
+
+
+        window.location.reload();
+    }
+});
+
