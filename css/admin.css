@@ -1,0 +1,30 @@
+html body {
+    background-color: black;
+    font-family:"Luckiest Guy", cursive;
+}
+.table {
+    border-radius: 10px; 
+    overflow: hidden;
+    background-color:#810404;
+}
+.table thead th {
+    background-color:#810404;
+    color: white; 
+}
+.table th,
+.table td {
+    border-color: black; 
+    border-width: 40px;
+}
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 150px; 
+
+}
+.dropdown{
+    position: absolute;
+    top: 0;
+
+}

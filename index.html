@@ -3,41 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/pgInicial.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Cadastro</title>
+    <title>Bem-vindo à ACME</title>
+    <link rel="icon" href="/img/filmes.png">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Francois+One&family=Luckiest+Guy&family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="login-container">
-      <form class="login-form">
-        <div class="center-image">
-          <img src="./img/logo.webp" alt="Logo" width="150">
-      </div>
-          <div class="mb-3">
-              <label for="username" class="form-label">Usuário</label>
-              <input type="text" class="form-control" id="username" placeholder="Digite seu usuário">
-          </div>
-          <div class="mb-3">
-              <label for="password" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
-          </div>
-          <a href="./html/landing.html" type="submit" class="btn btn-dark btn-block mb-3">Entrar</a>
-          <div class="text-center">
-              <a href="#" class="text-decoration-none text-white">Esqueceu sua senha?</a>
-          </div>
-          <hr class="my-3">
-          <div class="text-center">
-              <p class="mb-3">Ou entre com</p>
-              <a href="#" class="btn btn-outline-light btn-social mx-1"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="btn btn-outline-light btn-social mx-1"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="btn btn-outline-light btn-social mx-1"><i class="bi bi-google"></i></a>
-          </div>
-      </form>
-  </div>
-  
-  </body>
+    <img src="../img/logo.webp" alt="Header Image" class="header-image" id="logo">
+    <div class="container">
+        <h1>Seja Bem-vindo (a)!</h1>
+        <div class="buttons-container">
+            <button onclick="redirectTo('user')" class="btn">Sou usuário</button>
+            <button onclick="redirectTo('admin')" class="btn">Sou administrador</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectTo(role) {
+            if (role === 'user') {
+                window.location.href = 'login.html'; 
+            } else if (role === 'admin') {
+                window.location.href = 'login2.html'; 
+            }
+        }
+    </script>
+</body>
 </html>
+
+
