@@ -44,9 +44,11 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Sigla</th>
-                    <th scope="col">Descrição</th>
+                    <th scope="col">Faixa Etária</th>
+                    <th scope="col">Classificacao</th>
+                    <th scope="col">Característica</th>
+                    <th scope="col">Icone</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody id="tbody">
@@ -54,6 +56,85 @@
             </tbody>
         </table>
     </div>
+
+    <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addMovieModalLabel">Adicionar Classificação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="faixa_etaria" class="form-label">Faixa Etária </label>
+                        <input type="text" class="form-control" id="faixa_etaria">
+                    </div>
+                    <div class="mb-3">
+                        <label for="classificacao" class="form-label">Classificação</label>
+                        <input type="text" class="form-control" id="classificacao">
+                    </div>
+                    <div class="mb-3">
+                        <label for="caracteristica" class="form-label">Caracteristica</label>
+                        <input type="text" class="form-control" id="caracteristica">
+                    </div>
+                    <div class="mb-3">
+                        <label for="icone" class="form-label">Icone</label>
+                        <input type="text" class="form-control" id="icone">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" id="saveMovieButton">Salvar Classificacao</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-3">
+    <button type="button" class="btn btn-success custom-button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+        Adicionar Classificacao
+    </button>
+</div>
+
+
+<div class="modal fade" id="editarClassificacaoModal" tabindex="-1" aria-labelledby="editarClassificacaoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarClassificacaoModalLabel">Editar Classificação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form id="editarClassificacaoForm">
+                    
+                    <div class="mb-3">
+                        <label for="faixa_etaria" class="form-label">Faixa Etária</label>
+                        <input type="text" class="form-control" id="faixa_etaria">
+                    </div>
+                    <div class="mb-3">
+                        <label for="classificacao" class="form-label">Classificação</label>
+                        <input type="text" class="form-control" id="classificacao">
+                    </div>
+                    <div class="mb-3">
+                        <label for="caracteristica" class="form-label">Característica</label>
+                        <input type="text" class="form-control" id="caracteristica">
+                    </div>
+                    <div class="mb-3">
+                        <label for="icone" class="form-label">Ícone</label>
+                        <input type="text" class="form-control" id="icone">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" id="salvarEdicaoButton">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 

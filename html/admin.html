@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,8 @@
     <div class="container mt-3">
 
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
                 Menu
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -36,76 +38,92 @@
                 <li><a class="dropdown-item" href="admin.html">Filmes</a></li>
             </ul>
         </div>
-        
 
-    <div class="container table-container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Título</th>
-                    <th scope="col">Sinopse</th>
-                    <th scope="col">Ano</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody id="tbody">
 
-            </tbody>
-        </table>
-    </div>
+        <div class="container table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Sinopse</th>
+                        <th scope="col">Ano</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
 
-    <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addMovieModalLabel">Adicionar Filme</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="movieTitle" class="form-label">Título do Filme</label>
-                            <input type="text" class="form-control" id="movieTitle">
-                        </div>
-                        <div class="mb-3">
-                            <label for="movieSynopsis" class="form-label">Sinopse</label>
-                            <textarea class="form-control" id="movieSynopsis"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="movieReleaseDate" class="form-label">Data de Lançamento</label>
-                            <input type="date" class="form-control" id="movieReleaseDate">
-                        </div>
-                        <div class="mb-3">
-                            <label for="movieReReleaseDate" class="form-label">Data de Relançamento</label>
-                            <input type="date" class="form-control" id="movieReReleaseDate">
-                        </div>
-                        <div class="mb-3">
-                            <label for="moviePosterURL" class="form-label">URL do Poster</label>
-                            <input type="url" class="form-control" id="moviePosterURL">
-                        </div>
-                        <div class="mb-3">
-                            <label for="movieDuration" class="form-label">Duração (minutos)</label>
-                            <input type="number" class="form-control" id="movieDuration">
-                        </div>
-                        <div class="mb-3">
-                            <label for="moviePrice" class="form-label">Valor (R$)</label>
-                            <input type="number" step="0.01" class="form-control" id="moviePrice">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" id="saveMovieButton">Salvar Filme</button>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addMovieModalLabel">Adicionar Filme</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="movieTitle" class="form-label">Título do Filme</label>
+                                <input type="text" class="form-control" id="movieTitle">
+                            </div>
+                            <div class="mb-3">
+                                <label for="movieSynopsis" class="form-label">Sinopse</label>
+                                <textarea class="form-control" id="movieSynopsis"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="movieReleaseDate" class="form-label">Data de Lançamento</label>
+                                <input type="date" class="form-control" id="movieReleaseDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="movieReReleaseDate" class="form-label">Data de Relançamento</label>
+                                <input type="date" class="form-control" id="movieReReleaseDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="moviePosterURL" class="form-label">URL do Poster</label>
+                                <input type="url" class="form-control" id="moviePosterURL">
+                            </div>
+                            <div class="mb-3">
+                                <label for="movieDuration" class="form-label">Duração (minutos)</label>
+                                <input type="number" class="form-control" id="movieDuration">
+                            </div>
+                            <div class="mb-3">
+                                <label for="moviePrice" class="form-label">Valor (R$)</label>
+                                <input type="number" step="0.01" class="form-control" id="moviePrice">
+                            </div>
+                            <div class="mb-3">
+                                <label for="classificacao">Escolha a classificação:</label>
+                                <select id="classificacao" name="classificacaolist" form="classificacaoform">
+                                    <option value="livre">Livre</option>
+                                    <option value="dez">10 anos</option>
+                                    <option value="doze">12 anos</option>
+                                    <option value="quatorze">14 anos</option>
+                                    <option value="dezesseis">16 anos</option>
+                                    <option value="dezoito">18 anos</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" id="saveMovieButton">Salvar Filme</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container mt-3">
-        <button type="button-success " class="btn custom-button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-            Adicionar Filme
-        </button>
-    </div>
+        <div class="container mt-3">
+            <button type="button" class="btn btn-success custom-button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                Adicionar Filme
+            </button>
+        </div>
+
+        
+
+
 
 </body>
 

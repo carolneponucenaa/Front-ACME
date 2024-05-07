@@ -14,6 +14,7 @@ export async function getFilme (id){
 }
 export async function postFilme (filme){
   
+  console.log(filme)
     const url = `http://localhost:8080/v2/Acme/filme`
     const options = {
         method:'POST',

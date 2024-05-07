@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         const editarButton = document.createElement('button')
         editarButton.classList.add('btn', 'btn-warning', 'btn-sm')
         editarButton.textContent = "Editar"
+        editarButton.addEventListener('click', () => {
+            abrirModalEditarClassificacao(info);
+        });
+
         const excluirButton = document.createElement('button')
         excluirButton.classList.add('btn', 'btn-danger', 'btn-sm')
         excluirButton.textContent = "Excluir"
@@ -34,6 +38,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             await deleteClassificacao(info.id)
             window.location.reload()
         })
+
 
         botoes.append(editarButton, excluirButton)
         tr.append(id, faixaEtaria, classificacao, caracteristica, icone, botoes)
@@ -55,3 +60,69 @@ document.addEventListener('DOMContentLoaded', async function() {
         window.location.href = './classificacoes.html'
     })
 })
+
+document.getElementById('saveMovieButton').addEventListener('click', async () => {
+    const faixa_etaria = document.getElementById('faixa_etaria').value
+    const classificacao = document.getElementById('classificacao').value
+    const caracteristica = document.getElementById('caracteristica').value
+    const icone = document.getElementById('icone').value
+
+    const filme = {
+        faixa_etaria: faixa_etaria,
+        classificacao: classificacao,
+        caracteristica: caracteristica,
+        icone: icone
+    } 
+    const sucesso = await postClassificacao(filme)
+    if (sucesso) {
+        document.getElementById('faixa_etaria').value = ''
+        document.getElementById('classificacao').value = ''
+        document.getElementById('caracteristica').value = ''
+        document.getElementById('icone').value = ''
+
+        const modal = new bootstrap.Modal(document.getElementById('addMovieModal'))
+        modal.hide()
+
+
+        window.location.reload()
+    }
+
+});
+
+
+function abrirModalEditarClassificacao(info) {
+    const modal = new bootstrap.Modal(document.getElementById('editarClassificacaoModal'))
+    
+    document.getElementById('faixa_etaria').value = info.faixaEtaria
+    document.getElementById('classificacao').value = info.nome
+    document.getElementById('caracteristica').value = info.caracteristica
+    document.getElementById('icone').value = info.icone
+
+    modal.show()
+}
+
+
+document.getElementById('salvarEdicaoButton').addEventListener('click', async () => {
+    const faixa_etaria = document.getElementById('faixa_etaria').value
+    const classificacao = document.getElementById('classificacao').value
+    const caracteristica = document.getElementById('caracteristica').value
+    const icone = document.getElementById('icone').value
+
+    const classificacaoEditada = {
+        faixa_etaria: faixa_etaria,
+        classificacao: classificacao,
+        caracteristica: caracteristica,
+        icone: icone
+    }
+
+    const sucesso = await postClassificacao(classificacaoEditada)
+
+    if (sucesso) {
+        
+        window.location.reload()
+    } else {
+        
+        console.error('Erro ao salvar edição da classificação')
+    }
+})
+

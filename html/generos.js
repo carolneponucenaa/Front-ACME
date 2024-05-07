@@ -46,4 +46,22 @@ document.addEventListener('DOMContentLoaded', async function() {
     document.getElementById('logo').addEventListener('click', () => {
         window.location.href = './genero.html'
     })
+
+    document.getElementById('saveMovieButton').addEventListener('click', async () => {
+        const nome = document.getElementById('generoNome').value
+    
+        const genero = {
+            nome: nome
+        } 
+        const sucesso = await postGenero(genero)
+        if (sucesso) {
+            document.getElementById('generoNome').value = ''
+    
+            const modal = new bootstrap.Modal(document.getElementById('addMovieModal'));
+            modal.hide();
+    
+    
+            window.location.reload();
+        }
+    })
 })

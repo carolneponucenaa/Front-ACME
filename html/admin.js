@@ -1,6 +1,10 @@
 import {getFilmes,deleteFilme,postFilme} from '../js/filmes.js'
 const listaFilmes = await getFilmes()
 
+async function getClassificacaoIdByNome(nome) {
+    
+}
+
 function criarCard(info){
     const container = document.querySelector('tbody')
 
@@ -54,18 +58,20 @@ document.getElementById('saveMovieButton').addEventListener('click', async () =>
     const posterURL = document.getElementById('moviePosterURL').value
     const duration = document.getElementById('movieDuration').value
     const price = document.getElementById('moviePrice').value
+    const classificacaoId = await getClassificacaoIdByNome('classificacao').value;
+
 
     const filme = {
         nome: title,
         sinopse: synopsis,
         data_lancamento: releaseDate,
         data_relancamento: reReleaseDate,
-        poster_url: posterURL,
+        foto_capa: posterURL,
         duracao: duration,
-        valor: price
-    };
-
-    const sucesso = await postFilme(filme);
+        valor_unitario: price,
+        id_classificacao:  classificacaoId
+    } 
+    const sucesso = await postFilme(filme)
     if (sucesso) {
         document.getElementById('movieTitle').value = ''
         document.getElementById('movieSynopsis').value = ''

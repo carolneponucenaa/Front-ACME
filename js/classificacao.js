@@ -46,7 +46,7 @@ export async function postClassificacao(classificacao) {
 
 export async function deleteClassificacao(id) {
     try {
-        await fetch(`http://localhost:8080/v2/Acme/classificacao${id}`, {
+        await fetch(`http://localhost:8080/v2/Acme/classificacao/${id}`, {
             method: 'DELETE'
         })
         console.log('Classificação excluída com sucesso')
