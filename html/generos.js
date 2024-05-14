@@ -1,4 +1,4 @@
-import { getGeneros, deleteGenero, postGenero } from '../js/genero.js'
+import { getGeneros, deleteGenero, postGenero, editGenero } from '../js/genero.js'
 
 document.addEventListener('DOMContentLoaded', async function() {
     const listaGeneros = await getGeneros()
@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         const editarButton = document.createElement('button')
         editarButton.classList.add('btn', 'btn-warning', 'btn-sm')
         editarButton.textContent = "Editar"
+        editarButton.addEventListener('click', () => {
+            abrirModalEditarGenero(info)
+        })
+
         const excluirButton = document.createElement('button')
         excluirButton.classList.add('btn', 'btn-danger', 'btn-sm')
         excluirButton.textContent = "Excluir"
@@ -64,4 +68,28 @@ document.addEventListener('DOMContentLoaded', async function() {
             window.location.reload();
         }
     })
+})
+
+function abrirModalEditarGenero(info) {
+    const modal = new bootstrap.Modal(document.getElementById('editarGeneroModal'))
+    
+    document.getElementById('nome').value = info.nome
+
+    modal.show()
+}
+
+
+document.getElementById('salvarEdicaoButton').addEventListener('click', async () => {
+    const nome = document.getElementById('nome').value
+    const generoEditado = {
+        nome: nome,
+    }
+
+    const sucesso = await editGenero (generoEditado)
+    if (sucesso) {
+        
+        window.location.reload()
+    } else {
+        console.error('Erro ao salvar edição da classificação')
+    }
 })

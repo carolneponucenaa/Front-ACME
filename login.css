@@ -1,29 +1,49 @@
 html body {
     background-color: black;
-    font-family:"Luckiest Guy", cursive;
+    font-family: "Luckiest Guy", cursive;
 }
+
 .table {
-    border-radius: 10px; 
+    border-radius: 10px;
     overflow: hidden;
-    background-color:#810404;
+    background-color: #810404;
+    margin: auto;
 }
+
 .table thead th {
-    background-color:#810404;
-    color: white; 
+    background-color: #810404;
+    color: white;
 }
+
 .table th,
 .table td {
-    border-color: black; 
-    border-width: 40px;
+    border-color: black;
+    padding: 5px;
+    text-align: center; 
+    vertical-align: middle; 
+    min-width: 100px; 
+    word-wrap: break-word; 
 }
+
+.table th {
+    width: auto; 
+}
+
+.table td img {
+    width: 50px; 
+    height: auto; 
+    display: block;
+    margin: auto; 
+}
+
 .header-image {
     position: absolute;
     top: 0;
     left: 0;
-    max-width: 150px; 
+    max-width: 150px;
     z-index: 1;
 }
 
 .dropdown {
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }

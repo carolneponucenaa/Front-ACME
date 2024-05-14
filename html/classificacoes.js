@@ -1,4 +1,5 @@
-import { getClassificacoes, deleteClassificacao, postClassificacao } from '../js/classificacao.js'
+
+import { getClassificacoes, deleteClassificacao, postClassificacao, editClassificacao} from '../js/classificacao.js'
 
 document.addEventListener('DOMContentLoaded', async function() {
     const listaClassificacoes = await getClassificacoes()
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         editarButton.textContent = "Editar"
         editarButton.addEventListener('click', () => {
             abrirModalEditarClassificacao(info);
-        });
+        })
 
         const excluirButton = document.createElement('button')
         excluirButton.classList.add('btn', 'btn-danger', 'btn-sm')
@@ -87,7 +88,7 @@ document.getElementById('saveMovieButton').addEventListener('click', async () =>
         window.location.reload()
     }
 
-});
+})
 
 
 function abrirModalEditarClassificacao(info) {
@@ -98,9 +99,11 @@ function abrirModalEditarClassificacao(info) {
     document.getElementById('caracteristica').value = info.caracteristica
     document.getElementById('icone').value = info.icone
 
+    // Adiciona o ID da classificação como um atributo de dados no modal
+    document.getElementById('editarClassificacaoModal').setAttribute('data-id', info.id)
+
     modal.show()
 }
-
 
 document.getElementById('salvarEdicaoButton').addEventListener('click', async () => {
     const faixa_etaria = document.getElementById('faixa_etaria').value
@@ -109,20 +112,20 @@ document.getElementById('salvarEdicaoButton').addEventListener('click', async ()
     const icone = document.getElementById('icone').value
 
     const classificacaoEditada = {
-        faixa_etaria: faixa_etaria,
-        classificacao: classificacao,
+        faixaEtaria: faixa_etaria,  // Correção na chave
+        nome: classificacao,        // Correção na chave
         caracteristica: caracteristica,
         icone: icone
     }
 
-    const sucesso = await postClassificacao(classificacaoEditada)
+    // Recupera o ID da classificação a partir do modal
+    const id = document.getElementById('editarClassificacaoModal').getAttribute('data-id')
+
+    const sucesso = await editClassificacao(id, classificacaoEditada)
 
     if (sucesso) {
-        
         window.location.reload()
     } else {
-        
         console.error('Erro ao salvar edição da classificação')
     }
 })
-

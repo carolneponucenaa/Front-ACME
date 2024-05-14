@@ -66,8 +66,13 @@ export async function editClassificacao(id, classificacaoAtualizada) {
             body: JSON.stringify(classificacaoAtualizada)
         }
         const response = await fetch(url, options)
-        console.log('Classificação atualizada com sucesso')
-        return response.ok
+        if (response.ok) {
+            console.log('Classificação atualizada com sucesso')
+            return true
+        } else {
+            console.error('Erro na resposta do servidor:', response.statusText)
+            return false
+        }
     } catch (error) {
         console.error('Erro ao editar classificação:', error)
         return false
