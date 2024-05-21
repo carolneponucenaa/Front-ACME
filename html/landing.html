@@ -26,31 +26,30 @@
   <img src="../img/logo.webp" alt="Header Image" class="header-image" id="logo">
   <div class="container mt-3">
     <form class="form-inline my-2 my-lg-0 custom-search-form">
-      <input class="form-control mr-sm-2 custom-search-input" type="search" placeholder="Pesquise aqui ..."
-        aria-label="Search">
+      <input class="form-control mr-sm-2 custom-search-input" type="search" placeholder="Pesquise aqui ..." aria-label="Search">
     </form>
   </div>
 
-  <div class="container mt-3" >
+  <div class="container mt-3">
     <div class="row" id="containerRow">
-
     </div>
   </div>
+
   <div class="modal fade" id="modalExemplo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Sobre</h5>
+          <h5 class="modal-title" id="tituloFilme">Sobre</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="card bg-transparent border-0">
-            <img class="card-img-top" id="imagemFilme"
-              alt="Imagem do Filme">
+            <img class="card-img-top" id="imagemFilme" alt="Imagem do Filme">
             <div class="card-img-overlay">
               <div class="overlay"></div>
               <div class="description-container">
                 <p class="card-text text-white" id="sinopse"></p>
+                <p class="card-text text-white" id="valorFilme"></p>
               </div>
             </div>
           </div>
@@ -61,8 +60,6 @@
       </div>
     </div>
   </div>
-
-
 </body>
 
 </html>
