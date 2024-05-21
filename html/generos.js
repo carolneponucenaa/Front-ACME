@@ -74,22 +74,31 @@ function abrirModalEditarGenero(info) {
     const modal = new bootstrap.Modal(document.getElementById('editarGeneroModal'))
     
     document.getElementById('nome').value = info.nome
+    document.getElementById('editarGeneroModal').setAttribute('data-id', info.id)
 
     modal.show()
 }
 
-
 document.getElementById('salvarEdicaoButton').addEventListener('click', async () => {
     const nome = document.getElementById('nome').value
-    const generoEditado = {
-        nome: nome,
+    const id = document.getElementById('editarGeneroModal').getAttribute('data-id') 
+
+    if (!id) {
+        console.error('ID não encontrado.')
+        return
     }
 
-    const sucesso = await editGenero (generoEditado)
-    if (sucesso) {
-        
-        window.location.reload()
-    } else {
-        console.error('Erro ao salvar edição da classificação')
+    const generoEditado = {
+        nome: nome
     }
+
+    try {
+        const sucesso = await editGenero(id, generoEditado)
+    } catch (error) {
+        console.error('Erro:', error)
+        alert('Erro ao editar.')
+    }
+
+    window.location.reload()
+
 })

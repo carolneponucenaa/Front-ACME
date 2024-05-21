@@ -47,17 +47,28 @@ export async function deleteGenero(id) {
     }
   }
 
-  export async function editGenero(id,generoAtualizado) {
+  export async function editGenero(id, genero) {
     try {
-      await fetch(`http://localhost:8080/v2/Acmegeneros/update/${id}`, {
-          method: 'PUT', 
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(generoAtualizado)
-      });
-      console.log('Gênero substituído com sucesso!');
-  } catch (error) {
-      console.error('Ocorreu um erro ao substituir o genero: ', error);
-  }
-  }
+        const response = await fetch(`http://localhost:8080/v2/Acmegeneros/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(genero),
+        })
+
+        if (!response.ok) {
+            console.error('Resposta da API não OK:', response.status, response.statusText)
+            return false
+        }
+
+        const data = await response.json()
+        console.log('Resposta da API:', data)
+
+        
+        return data.status === 'success'
+    } catch (error) {
+        console.error('Erro ao fazer a requisição:', error)
+        return false
+    }
+}
